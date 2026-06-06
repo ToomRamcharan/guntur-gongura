@@ -1,0 +1,140 @@
+{
+  "entities": {
+    "MenuItem": {
+      "title": "Menu Item",
+      "description": "A food or beverage item on the restaurant menu.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "category": { "type": "string" },
+        "name": { "type": "string" },
+        "description": { "type": "string" },
+        "price": { "type": "number" },
+        "imageUrl": { "type": "string" },
+        "isVeg": { "type": "boolean" },
+        "isAvailable": { "type": "boolean" }
+      },
+      "required": ["category", "name", "price", "isVeg"]
+    },
+    "TodaySpecial": {
+      "title": "Today's Special",
+      "description": "Daily highlighted dish.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "description": { "type": "string" },
+        "price": { "type": "number" },
+        "imageUrl": { "type": "string" },
+        "isAvailable": { "type": "boolean" }
+      },
+      "required": ["name", "price"]
+    },
+    "Review": {
+      "title": "Review",
+      "description": "Customer testimonial or Google style review.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "rating": { "type": "number" },
+        "comment": { "type": "string" },
+        "date": { "type": "string" }
+      },
+      "required": ["name", "rating", "comment"]
+    },
+    "GalleryItem": {
+      "title": "Gallery Item",
+      "description": "Photo for the restaurant gallery.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "imageUrl": { "type": "string" },
+        "caption": { "type": "string" },
+        "category": { "type": "string", "enum": ["food", "interior", "events", "kitchen"] }
+      },
+      "required": ["imageUrl", "category"]
+    },
+    "Lead": {
+      "title": "Lead",
+      "description": "Potential customer contact details collected from popup.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "phone": { "type": "string" },
+        "birthday": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["name", "phone"]
+    },
+    "Order": {
+      "title": "Order",
+      "description": "A pickup pre-order placed by a customer.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "customerName": { "type": "string" },
+        "customerPhone": { "type": "string" },
+        "items": { "type": "array" },
+        "total": { "type": "number" },
+        "pickupTime": { "type": "string" },
+        "status": { "type": "string", "enum": ["pending", "preparing", "ready", "completed", "cancelled"] },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["customerName", "customerPhone", "items", "total", "pickupTime"]
+    },
+    "LoyaltyMember": {
+      "title": "Loyalty Member",
+      "description": "Customer enrolled in the loyalty program.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "name": { "type": "string" },
+        "phone": { "type": "string" },
+        "visitsCount": { "type": "number" },
+        "birthDate": { "type": "string" },
+        "points": { "type": "number" }
+      },
+      "required": ["userId", "name", "phone"]
+    },
+    "Feedback": {
+      "title": "Feedback",
+      "description": "Customer feedback form submission.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "phone": { "type": "string" },
+        "rating": { "type": "number" },
+        "comments": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["name", "phone", "rating"]
+    },
+    "Config": {
+      "title": "Restaurant Configuration",
+      "description": "Global settings for the restaurant like contact and hours.",
+      "type": "object",
+      "properties": {
+        "phone": { "type": "string" },
+        "whatsapp": { "type": "string" },
+        "email": { "type": "string" },
+        "address": { "type": "string" },
+        "openingHours": { "type": "object" }
+      }
+    }
+  },
+  "firestore": {
+    "menu": { "schema": "MenuItem", "description": "Restaurant menu items" },
+    "specials": { "schema": "TodaySpecial", "description": "Daily special items" },
+    "reviews": { "schema": "Review", "description": "Customer reviews" },
+    "gallery": { "schema": "GalleryItem", "description": "Photo gallery items" },
+    "leads": { "schema": "Lead", "description": "Marketing leads" },
+    "orders": { "schema": "Order", "description": "Pickup orders" },
+    "loyalty": { "schema": "LoyaltyMember", "description": "Loyalty program members" },
+    "feedback": { "schema": "Feedback", "description": "Customer feedback" },
+    "config": { "schema": "Config", "description": "Global restaurant settings" }
+  }
+}

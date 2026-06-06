@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Outfit", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  --color-brand-orange: #FF7A00;
+  --color-brand-yellow: #FFC107;
+  --color-brand-red: #B22222;
+  --color-cream: #FFFDF5;
+}
+
+@layer base {
+  body {
+    @apply bg-cream text-slate-900 font-sans;
+  }
+
+  @media print {
+    body {
+      @apply bg-white text-black;
+    }
+    header, footer, #pickup, #reviews, #gallery, .WhatsAppButton, #loyalty, #feedback {
+      display: none !important;
+    }
+    #menu {
+      @apply py-0 px-0;
+    }
+    .MenuSection_print_only {
+      display: block !important;
+    }
+    .no-print {
+      display: none !important;
+    }
+  }
+}
+
+.markdown-body {
+  @apply prose prose-slate max-w-none;
+}
+

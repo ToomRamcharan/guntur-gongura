@@ -1,0 +1,6 @@
+{
+  "name": "Guntur Gongoora",
+  "description": "Authentic Andhra-style restaurant website with online menu, pickup pre-ordering, and loyalty rewards.",
+  "requestFramePermissions": ["camera", "geolocation"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
