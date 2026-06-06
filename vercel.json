@@ -5,8 +5,9 @@
       "destination": "/api"
     },
     {
-      "source": "/((?!api|images|assets|favicon.svg|robots.txt|sitemap.xml).*)/?",
+      "source": "/:path*",
       "destination": "/index.html"
     }
   ]
 }
+
