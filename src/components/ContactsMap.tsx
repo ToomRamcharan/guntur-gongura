@@ -3,7 +3,9 @@ import { motion } from 'motion/react';
 
 export default function ContactsMap() {
   const address = "Ayyappa Society, Mega Hills, Madhapur, Hyderabad, Telangana 500081";
-  const mapEmbedUrl = `https://www.google.com/maps/embed/v1/place?key=${process.env.GOOGLE_MAPS_PLATFORM_KEY}&q=Guntur+Gongoora+Madhapur+Hyderabad`;
+  
+  // Use free search-based Google Maps embed URL that does not require an API key
+  const mapEmbedUrl = `https://maps.google.com/maps?q=${encodeURIComponent("Guntur Gongoora Ayyappa Society Madhapur")}&t=&z=15&ie=UTF8&iwloc=&output=embed`;
 
   return (
     <section id="contact" className="py-24 px-4 md:px-8 bg-cream">
@@ -68,22 +70,15 @@ export default function ContactsMap() {
             viewport={{ once: true }}
             className="h-[600px] bg-slate-200 rounded-[40px] overflow-hidden shadow-2xl border-4 border-white relative group"
           >
-            {process.env.GOOGLE_MAPS_PLATFORM_KEY ? (
-               <iframe
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                loading="lazy"
-                allowFullScreen
-                src={mapEmbedUrl}
-                title="Google Maps Location"
-              ></iframe>
-            ) : (
-               <div className="w-full h-full flex flex-col items-center justify-center bg-slate-50 p-10 text-center">
-                  <MapPin className="w-16 h-16 text-slate-300 mb-6" />
-                  <p className="text-slate-500 font-medium">Map view requires a Google Maps API Key.<br />Please get directions via the button on the left.</p>
-               </div>
-            )}
+            <iframe
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              loading="lazy"
+              allowFullScreen
+              src={mapEmbedUrl}
+              title="Google Maps Location"
+            ></iframe>
             
             <div className="absolute top-6 right-6 opacity-0 group-hover:opacity-100 transition-opacity">
                <div className="bg-white/90 backdrop-blur-md px-4 py-2 rounded-full shadow-lg text-xs font-bold text-slate-800 border border-slate-100">
