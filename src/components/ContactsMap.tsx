@@ -2,10 +2,11 @@ import { MapPin, Navigation, Phone, ExternalLink } from 'lucide-react';
 import { motion } from 'motion/react';
 
 export default function ContactsMap() {
-  const address = "Ayyappa Society, Mega Hills, Madhapur, Hyderabad, Telangana 500081";
+  const address = "Ayyappa Society, Chanda Naik Nagar, Madhapur, Hyderabad, Telangana 500081, India";
   
-  // Use free search-based Google Maps embed URL that does not require an API key
-  const mapEmbedUrl = `https://maps.google.com/maps?q=${encodeURIComponent("Guntur Gongoora Ayyappa Society Madhapur")}&t=&z=15&ie=UTF8&iwloc=&output=embed`;
+  // Use free search-based Google Maps embed URL that queries the exact address matching the screenshot
+  const mapEmbedUrl = `https://maps.google.com/maps?q=${encodeURIComponent("Ayyappa Society, Chanda Naik Nagar, Madhapur, Hyderabad, Telangana 500081, India")}&t=&z=15&ie=UTF8&iwloc=&output=embed`;
+
 
   return (
     <section id="contact" className="py-24 px-4 md:px-8 bg-cream">
